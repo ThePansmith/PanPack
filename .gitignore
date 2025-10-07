@@ -127,3 +127,12 @@ config/darkmodeeverywhereshaders.json
 
 # Downloadable dependencies
 **/node_modules
+
+# Pakku
+build/
+!.pakku/
+!pakku.jar
+!pakku.json
+!pakku-lock.json
+
+!CHANGELOG.md
