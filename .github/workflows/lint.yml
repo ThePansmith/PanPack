@@ -5,10 +5,6 @@ on:
     branches:
       - main
 
-permissions:
-  checks: write
-  contents: write
-
 jobs:
   run-linters:
     name: Run linters
@@ -34,6 +30,6 @@ jobs:
         uses: rkuykendall/lint-action@master
         with:
           eslint_dir: ./kubejs
-          autofix: true
+          auto_fix: true
           eslint: true
-          eslint_autofix: true
+          eslint_auto_fix: true
