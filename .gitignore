@@ -136,3 +136,4 @@ build/
 !pakku-lock.json
 
 !CHANGELOG.md
+config/packetfixer.properties

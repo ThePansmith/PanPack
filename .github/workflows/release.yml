@@ -16,7 +16,7 @@ jobs:
   info:
     name: Project Info
     runs-on: ubuntu-latest
-    if: ${{  github.repository_owner == 'ThePansmith' }}  # Change this!
+    if: ${{  github.repository_owner == 'ThePansmith' }}  # Change this! (This is to prevent forks from running the workflow and failing due to not having access to secrets.)
     outputs:
       project_version: ${{ steps.check.outputs.project_version }}
       project_name: ${{ steps.check.outputs.project_name }}
@@ -30,7 +30,8 @@ jobs:
       exists: ${{ steps.check.outputs.exists }}
       make_release: ${{ steps.check.outputs.make_release }}
       make_pr: ${{ steps.check.outputs.make_pr }}
-    
+      pakku-lock_changed: ${{ steps.filter.outputs.pakku-lock }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
@@ -56,7 +57,7 @@ jobs:
           else
             echo "pakku.json"
           fi
-
+        
       - name: Get latest tag
         id: latest_tag
         shell: bash
@@ -138,6 +139,14 @@ jobs:
         with:
           file_path: "pakku-lock.json"
 
+      - name: Check for Pakku-lock changes from previous commit
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            pakku-lock:
+              - 'pakku-lock.json'
+
       - name: Changelog Dev Parser
         id: changelog_dev
         if: ${{ env.DEV_ENVIRONMENT == 'true' }}
@@ -159,6 +168,8 @@ jobs:
         id: check_tag
         with:
           tag: ${{ steps.changelog.outputs.version }}
+
+      
 
       - name: Check
         id: check
@@ -257,7 +268,7 @@ jobs:
               });
 
               core.setOutput('exists', prs.length > 0);
-              console.log(`ℹPR exists: ${prs.length > 0}`);
+              console.log(`PR exists: ${prs.length > 0}`);
             } catch (error) {
               core.setFailed(`PR check failed: ${error}`);
               core.setOutput('exists', true);
@@ -282,6 +293,60 @@ jobs:
             **Loader**: `${{ needs.info.outputs.loader_type }}-${{ needs.info.outputs.loader_version }}`
 
             ${{ needs.info.outputs.changelog }}
+      
+  update-mmc-pack:
+    name: Update MMC-Pack 
+    needs: [info]
+    runs-on: ubuntu-latest
+    if: needs.info.outputs.pakku-lock_changed == 'true'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Get formatted loader name and UID
+        id: check-loader
+        run: |
+            case "${{ needs.info.outputs.loader_type }}" in
+              "forge")
+                  echo "name=Forge" >> $GITHUB_OUTPUT
+                  echo "uid=net.minecraftforge" >> $GITHUB_OUTPUT
+                  ;;
+              "neoforge")
+                  echo "name=NeoForge" >> $GITHUB_OUTPUT
+                  echo "uid=net.neoforged" >> $GITHUB_OUTPUT
+                  ;;
+              esac
+
+      - name: Update mmc-pack.json
+        run: |
+          jq --arg loader_uid "${{ steps.check-loader.outputs.uid }}" \
+            --arg loader_version "${{ needs.info.outputs.loader_version }}" \
+            --arg mc_version "${{ needs.info.outputs.mc_version }}" \
+            '.components |= (
+              map(
+                if .uid == $loader_uid then
+                  .cachedVersion = $loader_version | .version = $loader_version
+                elif .uid == "net.minecraft" then
+                  .cachedVersion = $mc_version | .version = $mc_version
+                else
+                  .
+                end
+              )
+            )' .pakku/prism-overrides/mmc-pack.json > temp.json
+          mv temp.json .pakku/prism-overrides/mmc-pack.json
+
+      - name: Commit changes (if any)
+        run: |
+          if ! git diff --quiet .pakku/prism-overrides/mmc-pack.json; then
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .pakku/prism-overrides/mmc-pack.json
+            git commit -m "ci: Updated mmc-pack.json to ${{ needs.info.outputs.loader_type }} ${{ needs.info.outputs.loader_version }}"
+            git push
+          fi
 
   build-project:
     name: Build Project
@@ -291,9 +356,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5.0.0
 
-      - name: Replace strings
+      - name: Replace strings with version # Replaces the word "DEV" in the file with the version number, two examples of uses in a modpack are commented below, add as needed.
         shell: bash
-        run: | # Change this as needed!
+        run: | 
           set +e
 
           VERSION=${{ needs.info.outputs.project_version }}
@@ -301,8 +366,8 @@ jobs:
           LOADER_TYPE=${{ needs.info.outputs.loader_type }}
           MINECRAFT_VERSION=${{ needs.info.outputs.mc_version }}
 
-
           sed -i -e "s/DEV/${VERSION}/g" pakku.json
+          
           # sed -i -e "s/DEV/${VERSION}/g" config/mod-director/modpack.json
           # sed -i -e "s/DEV/${VERSION}/g" config/fancymenu/customization/gui_main_menu.txt
 
@@ -559,7 +624,7 @@ jobs:
         with:
           key: ${{ secrets.discord-webhook  }}
           username: "Panpack" # Change this!
-          avatar_url: "https://media.forgecdn.net/avatars/thumbnails/798/822/64/64/638160732420962168.png" # Change this! (and the below url)
+          avatar_url: "https://media.forgecdn.net/avatars/thumbnails/798/822/64/64/638160732420962168.png" # Change this! (and the below curseforge url)
           content_links_no_embed: .+
           content: |
             **Release**: `${{ needs.info.outputs.project_version }}`

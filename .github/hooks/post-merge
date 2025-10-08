@@ -1,8 +1,0 @@
-#!/bin/sh
-SOURCE_DIR="$(pwd)/.pakku/prism-overrides"
-DEST_DIR="$(pwd)/../"
-
-if [ -d "$SOURCE_DIR" ]; then
-  cp -r "$SOURCE_DIR"/* "$DEST_DIR"
-else
-fi
