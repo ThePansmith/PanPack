@@ -18,13 +18,12 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v4
 
-      - name: cd kubejs
-        run: cd kubejs
 
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          folder: 'kubejs'
       - run: |
           cd ${{ github.workspace }}/${{ inputs.folder }}
           npm install eslint
