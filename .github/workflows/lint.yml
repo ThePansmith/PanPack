@@ -33,7 +33,6 @@ jobs:
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
+          eslint_dir: ./kubejs
           autofix: true
           eslint: true
-          eslint_autofix: true
-          eslint_dir: ./kubejs
