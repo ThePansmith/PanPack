@@ -24,8 +24,7 @@ jobs:
         with:
           node-version: 12
           folder: 'kubejs'
-      - run: |
-          cd ${{ github.workspace }}/${{ inputs.folder }}
+      - run:
           npm install eslint
           
 
