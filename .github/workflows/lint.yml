@@ -36,3 +36,4 @@ jobs:
           autofix: true
           eslint: true
           eslint_autofix: true
+          eslint_dir: ./kubejs
