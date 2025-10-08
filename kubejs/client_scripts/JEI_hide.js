@@ -1,7 +1,7 @@
 /** /kjs inventory will be your friend. */
 
 JEIEvents.hideItems(event => {
-    //Cleanup
+    // Cleanup
     event.hide('enderio:broken_spawner')
     event.hide('chiselsandbits:block_bit')
     event.hide(/ae2:facade/)
