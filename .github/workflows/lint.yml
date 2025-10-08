@@ -34,5 +34,6 @@ jobs:
         uses: rkuykendall/lint-action@master
         with:
           eslint_dir: ./kubejs
+          autofix: true
           eslint: true
           eslint_autofix: true
