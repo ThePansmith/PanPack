@@ -901,6 +901,7 @@
                 "70bcFKFwHnklDTec"
             ],
             "type": "MOD",
+            "side": "CLIENT",
             "slug": {
                 "curseforge": "legendary-tooltips"
             },
