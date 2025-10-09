@@ -2,30 +2,29 @@
 Like the previous template pack, this is a simple "pack" meant to save you time. This time, it's geared more towards pack developers, being built off of pakku, now featuring automatic linting, autofetching mods, and more!
 
 ## Features
-- Now using pakku:
+- Pakku:
    - Easily control mods and resourcepacks, handling dependendices for you.
       - Mods can be easily marked as client or serverside only, or even to [not export at all](https://github.com/ThePansmith/PanPack/blob/cfda140750ebd454094415e32a4f971d49153428/pakku.json#L31C1-L34C10)!
    - Simultaneous Curseforge and Modrinth Modpack Support[^1]
    - Mods can be easily fetched 
 - Actions:
    - Autolinting
-      - By default, will **automatically fix** any lint issues in the KubeJS pushed into the repository, keeping your code organized hassle free.
+      - By default, will **automatically fix** any lint issues in the KubeJS folder, keeping your code organized hassle free.
          - This behavior can be easily changed as applicable, if you prefer it to check pull requests
       - Custom Rules for Recipe Spacing, Call Chains and GTm Multiblocks included
+   - Autoupdating:
+      - **Automatically sync your instance's mods** with the repository
+      - **Automatically sync your instance's modloader version** (and more) with the repository
+         - Supports Forge and NeoForge
    - Build and Release
-      - Automatically builds on commit, and will push to Curseforge on a version change
-      - Automatically Diff Mods, and attaches your changelog
-      - Automatically update strings with version, useful for the main menu
+      - Automatically builds on commit, and will push to curseforge on a version change (Serverpacks included)
+      - Automatically Diffs Mods, and attaches your changelog
+      - Can replace text with the update number, useful for the main menu or loading screen.
       - Can publish a truncated changelog to discord if a webhook is provided.
-- Autoupdating:
-   - **Automatically sync instance's mods** with the repository
-   - **Automatically sync your instance's modloader version** with the repository
-      - Supports Forge and NeoForge
 - Other:
    - Very quick setup for contributors
    - VSC Workspace (in the .vscode folder)
-   - Automatically update mods folders on instance launch on Prism
-   - Issue templates
+   - Issue and PR templates
 
 ## Setup
 Using Prism Launcher, clone your fork into an empty [`instances\(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder. From there, add `java -jar pakku.jar fetch` to your [pre-launch commands](https://i.imgur.com/z7eQ3Ze.png).
