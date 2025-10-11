@@ -1,7 +1,7 @@
 {
     "name": "PanPack",
     "version": "DEV",
-    "release_type": "alpha",
+    "release_type": "release",
     "description": "A template pack",
     "author": "Pansmith",
     "overrides": [

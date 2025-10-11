@@ -620,6 +620,14 @@ jobs:
     needs: [info, release-github, release-curseforge]
     runs-on: ubuntu-latest
     steps:
+
+      - name: Check for webhook
+        shell: bash
+        run: |
+          if [ "${{ secrets.discord-webhook }}" == '' ]; then
+            echo '`discord-webhook` not set, skipping...' && exit 78
+          fi  
+
       - name: Truncate Changelog
         id: truncated
         uses: cisox/read-more-action@v1.0.2
