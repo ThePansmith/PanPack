@@ -32,7 +32,7 @@ Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`]
 
 <details>
   <summary>Modloader Sync</summary>
-   Those wanting to also automatically sync the modloader should use one of the below commands instead.
+   Those wanting to also automatically sync the modloader version should use one of the below commands instead.
    
   Windows:
   ```cmd
