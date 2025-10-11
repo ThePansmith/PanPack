@@ -5,20 +5,20 @@
 - Sample Text
 
 ## [1.3.0]
-## Changes
+### Changes
 - Overhauled the repository, now using pakku as a basis along some various other helpful scripts
 - Updated to 1.20.1
 
 ## [1.2.0]
-## Changes
+### Changes
 - Sample text
 
-## Bug fixes
+### Bug fixes
 - Sample text
 
 ## [1.1.0]
-## Changes
+### Changes
 - Sample text
 
-## [1.0.0]
+### [1.0.0]
 Intital Release
