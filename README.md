@@ -56,6 +56,7 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 * Contributors will only need to follow the first step of setup at minimum to get started; simply just clone the repo, move the pack-mmc, and input the command.
 * This template supports automatically posting changelogs to discord: add a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to your secrets with the name `discord-webhook` if you wish to enable that.
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
+* [Unreleased] changes are included in the changelog for builds created from the dev branch.
 * Those wishing to handle linting on their end can use the [precommit hook](https://github.com/ThePansmith/Monifactory/blob/main/CONTRIBUTING.md#kubejs-style-guide) to run eslint automatically.
 
 
