@@ -25,6 +25,7 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
    - Very quick setup for contributors
    - VSC Workspace (in the .vscode folder)
    - Issue and PR templates
+   - .gitignore (including some mod configs that add a last edited date)
 
 ## Setup
 Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder. From there, add `java -jar pakku.jar fetch` to your [pre-launch commands](https://i.imgur.com/z7eQ3Ze.png).
@@ -43,7 +44,7 @@ Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`]
   ```
 </details>
 
-To add your mods, refer to the Pakku docs, depending if you plan on [importing a manifest](https://juraj-hrivnak.github.io/Pakku/setting-up-a-modpack.html) and/or want to [add/remove mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. In either case, override `pakku.json` and `pakku-lock.json` with your own information.
+To add your mods, refer to the Pakku docs, depending if you plan on [importing a manifest](https://juraj-hrivnak.github.io/Pakku/setting-up-a-modpack.html) and/or want to [add/remove mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. In either case, override `pakku.json` and `pakku-lock.json` with your own information, and add your kubekjs scripts, etc.
 
 Before you can run the buildscripts, you will need to go to the repository's [secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) and add a [`CURSEFORGE_TOKEN`](https://support.curseforge.com/en/support/solutions/articles/9000197321-curseforge-upload-api) secret and `CURSEFORGE_ID` variable. Before releasing, go to [release.yml](https://github.com/ThePansmith/PanPack/blob/main/.github/workflows/release.yml), and change anything that's commented with "Change this!"
 

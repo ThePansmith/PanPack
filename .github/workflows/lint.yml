@@ -1,22 +1,21 @@
-name: Lint
+name: Autolint
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
 
 jobs:
   run-linters:
-    name: Run linters
+    name: Lint KubeJS
     runs-on: ubuntu-latest
 
     defaults:
         run:
           working-directory: ./kubejs
+          
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5.0.0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

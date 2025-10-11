@@ -31,6 +31,7 @@ jobs:
       make_release: ${{ steps.check.outputs.make_release }}
       make_pr: ${{ steps.check.outputs.make_pr }}
       pakku-lock_changed: ${{ steps.filter.outputs.pakku-lock }}
+      kubejs_changed: ${{ steps.filter.outputs.kubejs }}
 
     steps:
       - name: Checkout
@@ -139,13 +140,15 @@ jobs:
         with:
           file_path: "pakku-lock.json"
 
-      - name: Check for Pakku-lock changes from previous commit
+      - name: Check for Pakku-lock and KubeJS changes
         uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
             pakku-lock:
               - 'pakku-lock.json'
+            kubejs:
+              - 'kubejs/**'
 
       - name: Changelog Dev Parser
         id: changelog_dev
@@ -293,6 +296,13 @@ jobs:
             **Loader**: `${{ needs.info.outputs.loader_type }}-${{ needs.info.outputs.loader_version }}`
 
             ${{ needs.info.outputs.changelog }}
+
+  lint:
+    name: Lint KubeJS
+    needs: [info]
+    uses: ./.github/workflows/lint.yml
+    if: needs.info.outputs.kubejs_changed == 'true'
+    secrets: inherit
       
   update-mmc-pack:
     name: Update MMC-Pack 
