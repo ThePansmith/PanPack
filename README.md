@@ -59,7 +59,6 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
 * Those wishing to handle linting on their end can use the [precommit hook](https://github.com/ThePansmith/Monifactory/blob/main/CONTRIBUTING.md#kubejs-style-guide) to run eslint automatically.
 
-
 <!-- #### I need a Curseforge Key?
 Accessing CurseForge requires the CurseForge API key.
 
