@@ -11,7 +11,7 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
    - Autolinting
       - By default, will **automatically fix** any lint issues in the KubeJS folder, keeping your code organized hassle free.
          - This behavior can be easily changed as applicable, if you prefer it to check pull requests
-      - Custom Rules for Recipe Spacing, Call Chains and GTm Multiblocks included
+      - Custom Rules for Recipe Spacing, Call Chains and GTm Multiblocks (and more) included
    - Autoupdating:
       - **Automatically sync your instance's mods** with the repository
       - **Automatically sync your instance's modloader version** (and more) with the repository
@@ -57,6 +57,7 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 * Contributors will only need to follow the first step of setup to get started; simply just clone the repo, move the pack-mmc, and input the command to be able to launch the modpack.
 * This template supports automatically posting changelogs to discord: add a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to your secrets with the name `discord-webhook` if you wish to enable that.
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
+* Some of the linting rules are disabled by default, you can enable them (or even add your own!) by editing `custom-plugin.mjs`.
 * Those wishing to handle linting on their end can use the [precommit hook](https://github.com/ThePansmith/Monifactory/blob/main/CONTRIBUTING.md#kubejs-style-guide) to run eslint automatically.
 
 <!-- #### I need a Curseforge Key?
