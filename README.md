@@ -68,7 +68,7 @@ The API key can be generated in the CurseForge for Studios(https://console.curse
  1. Login to the developer console
  2. Go to the "API keys" tab
  3. Copy your API key
- 4. Run `java -jar pakku.jar credentials set --cf-api-key '(API Key)'` in your `minecraft` folder via your terminal (to get to the folder, use the [cd](https://en.wikipedia.org/wiki/Cd_(command)) command). -->
+ 4. Run `java -jar pakku.jar credentials set --cf-api-key '(API Key)'` in your `minecraft` folder via your terminal (to get to the folder, use the [cd](https://en.wikipedia.org/wiki/Cd_(command)) command).  -->
 
 
 ## Credits
