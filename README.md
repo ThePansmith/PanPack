@@ -44,7 +44,7 @@ Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`]
   ```
 </details>
 
-To add your mods, refer to the Pakku docs, depending if you plan on [importing a manifest](https://juraj-hrivnak.github.io/Pakku/setting-up-a-modpack.html) and/or want to [add/remove mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. In either case, override `pakku.json` and `pakku-lock.json` with your own information, and add your kubekjs scripts, etc.
+To add your mods, refer to the Pakku docs, depending if you plan on [importing a manifest](https://juraj-hrivnak.github.io/Pakku/setting-up-a-modpack.html) and/or want to [add/remove mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. In either case, override `pakku.json` and `pakku-lock.json` with your own information, and add your KubeJS scripts, etc.
 
 Before you can run the buildscripts, you will need to go to the repository's [secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) and add a [`CURSEFORGE_TOKEN`](https://support.curseforge.com/en/support/solutions/articles/9000197321-curseforge-upload-api) secret and `CURSEFORGE_ID` variable. Before releasing, go to [release.yml](https://github.com/ThePansmith/PanPack/blob/main/.github/workflows/release.yml), and change anything that's commented with "Change this!"
 
