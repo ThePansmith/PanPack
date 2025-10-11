@@ -50,13 +50,13 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 
 ## Usage
 * To initate a curseforge release, update `CHANGELOG.MD` with a new version, [Unreleased] can be used as a staging ground for changes.
+   * [Unreleased] changes are included in the changelog for builds created from the dev branch.
 * Release type, overrides, and otherwise can be set in pakku.json
 
 ## Notes
 * Contributors will only need to follow the first step of setup at minimum to get started; simply just clone the repo, move the pack-mmc, and input the command.
 * This template supports automatically posting changelogs to discord: add a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to your secrets with the name `discord-webhook` if you wish to enable that.
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
-* [Unreleased] changes are included in the changelog for builds created from the dev branch.
 * Those wishing to handle linting on their end can use the [precommit hook](https://github.com/ThePansmith/Monifactory/blob/main/CONTRIBUTING.md#kubejs-style-guide) to run eslint automatically.
 
 
@@ -74,5 +74,5 @@ The API key can be generated in the CurseForge for Studios(https://console.curse
 ## Credits
 - Buildscript modified from [Terrafirmagreg](https://www.curseforge.com/minecraft/modpacks/terrafirmagreg-modern)
 
-[^1]: Modrinth buildscripts are disabled by default, as most pack developers do not plan on releasing to modrinth due to important mods not being, but can be easily uncommented if you do. If also, also add a `MODRINTH_ID` and `MODRINTH_ID`
+[^1]: Modrinth buildscripts are disabled by default, as most pack developers do not plan on releasing to modrinth due to important mods not being present, but can be easily uncommented if you do. If also, also add a `MODRINTH_ID` and `MODRINTH_ID`
 [^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version. 
