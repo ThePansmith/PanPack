@@ -28,7 +28,7 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
    - .gitignore (including some mod configs that add a last edited date)
 
 ## Setup
-Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder. From there, add `java -jar pakku.jar fetch` to your [pre-launch commands](https://i.imgur.com/z7eQ3Ze.png).
+Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder.
 
 <details>
   <summary>Modloader Sync</summary>
@@ -54,7 +54,7 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 * Release type, overrides, and otherwise can be set in pakku.json
 
 ## Notes
-* Contributors will only need to follow the first step of setup to get started; simply just clone the repo, move the pack-mmc, and input the command to be able to launch the modpack.
+* Contributors will only need to follow the first step of setup to get started; simply just clone the repo and move the pack-mmc to be able to launch the modpack.
 * This template supports automatically posting changelogs to discord: add a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to your secrets with the name `discord-webhook` if you wish to enable that.
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
 * Some of the linting rules are disabled by default, you can enable them (or even add your own!) by editing `custom-plugin.mjs`.
