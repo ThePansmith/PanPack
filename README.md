@@ -28,7 +28,7 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
    - .gitignore (including some mod configs that add a last edited date)
 
 ## Setup
-Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder. From there, add `java -jar pakku.jar fetch` to your [pre-launch commands](https://i.imgur.com/z7eQ3Ze.png).
+Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder.
 
 <details>
   <summary>Modloader Sync</summary>
