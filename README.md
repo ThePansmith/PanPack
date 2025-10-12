@@ -28,7 +28,7 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
    - .gitignore (including some mod configs that add a last edited date)
 
 ## Setup
-Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder.
+Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder. From there, add `java -jar pakku.jar fetch` to your [pre-launch commands](https://i.imgur.com/z7eQ3Ze.png).
 
 <details>
   <summary>Modloader Sync</summary>
@@ -75,4 +75,4 @@ The API key can be generated in the CurseForge for Studios(https://console.curse
 - Buildscript modified from [Terrafirmagreg](https://www.curseforge.com/minecraft/modpacks/terrafirmagreg-modern)
 
 [^1]: Modrinth buildscripts are disabled by default, as most pack developers do not plan on releasing to modrinth due to important mods not being present, but can be easily uncommented if you do. If also, also add a `MODRINTH_ID` and `MODRINTH_ID`
-[^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version. 
+[^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version, just remember to add `PreLaunchCommand=java -jar pakku.jar fetch` to it.
