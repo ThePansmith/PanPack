@@ -55,7 +55,7 @@ To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hri
 </details>
 
 ### Building and releasing
-Before you can run the buildscripts, you will need to go to the repository's [secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) and add a [`CURSEFORGE_TOKEN`](https://support.curseforge.com/en/support/solutions/articles/9000197321-curseforge-upload-api) secret and `CURSEFORGE_ID` variable. Before releasing, go to [release.yml](https://github.com/ThePansmith/PanPack/blob/main/.github/workflows/release.yml), and change anything that's commented with "Change this!"
+Before you can run the buildscripts, you will need to go to the repository's [secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) and add a [`CURSEFORGE_TOKEN`](https://support.curseforge.com/en/support/solutions/articles/9000197321-curseforge-upload-api) secret and `CURSEFORGE_ID` variable. Before releasing, go to [release.yml](https://github.com/ThePansmith/PanPack/blob/main/.github/workflows/build-release.yml), and change anything that's commented with "Change this!"
 
 ## Usage
 * To initate a curseforge release, update `CHANGELOG.MD` with a new version, [Unreleased] can be used as a staging ground for changes.
