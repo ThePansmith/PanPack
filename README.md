@@ -28,12 +28,23 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
    - .gitignore (including some mod configs that add a last edited date)
 
 ## Setup
-Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder.
+### As a template 
+1. Clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder
+2. Copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder to have a working Prism Instance
+To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. 
+
+### Importing into an existing repository
+1. In your `/minecraft/` folder, ensure that you have one of the following available: `manifest.json` `modrinth.index.json` `.mrpack`, or a curseforge `.zip` file.
+2. Clone the panpack template somewhere, copy over everything but `pakku-lock.json` (and your `.gitattributes` and .git folder, of course), you can delete the template afterwards.
+3. Open up your terminal, change directory to `/minecraft/`, run `[java -jar pakku.jar import <file from step 1>](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects)`
+4. Edit `.github/workflows/build-release.yml`, `minecraft/pakku.json`, and `minecraft/.pakku/prism-overrides/` as applicable
+
 
 <details>
   <summary>Modloader Sync</summary>
-   Those wanting to also automatically sync the modloader version should use one of the below commands instead.
-   
+   Those wanting to also automatically sync the modloader version should use one of the below prelaunch commands instead.
+   <img width="800" height="454" alt="image" src="https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da" />
+
   Windows:
   ```cmd
   cmd /c "java -jar pakku.jar fetch && copy /Y "$INST_MC_DIR\.pakku\prism-overrides\mmc-pack.json" "$INST_DIR\mmc-pack.json"
@@ -44,8 +55,7 @@ Using Prism Launcher, clone your fork into an empty [`(instancename)\minecraft`]
   ```
 </details>
 
-To add your mods, refer to the Pakku docs, depending if you plan on [importing a manifest](https://juraj-hrivnak.github.io/Pakku/setting-up-a-modpack.html) and/or want to [add/remove mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. In either case, override `pakku.json` and `pakku-lock.json` with your own information, and add your KubeJS scripts, etc.
-
+### Building and releasing
 Before you can run the buildscripts, you will need to go to the repository's [secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) and add a [`CURSEFORGE_TOKEN`](https://support.curseforge.com/en/support/solutions/articles/9000197321-curseforge-upload-api) secret and `CURSEFORGE_ID` variable. Before releasing, go to [release.yml](https://github.com/ThePansmith/PanPack/blob/main/.github/workflows/release.yml), and change anything that's commented with "Change this!"
 
 ## Usage
