@@ -61,6 +61,7 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 * To initate a curseforge release, update `CHANGELOG.MD` with a new version, [Unreleased] can be used as a staging ground for changes.
    * [Unreleased] changes are included in the changelog for builds created from the dev branch.
 * Release type, overrides, and otherwise can be set in pakku.json
+* Give the workflow read/write permissions
 
 ## Notes
 * Contributors will only need to follow the first step of setup to get started; simply just clone the repo and move the pack-mmc to be able to launch the modpack.
