@@ -420,7 +420,7 @@ jobs:
       - name: Preparing the curseforge artifact
         run: |
           cd ./build/curseforge/
-          mv *.zip $(basename -s .zip *.zip)-curseforge.zip
+          mv *.zip "$(basename -s .zip *.zip)-curseforge.zip"
           
       - name: Upload artifact CurseForge
         uses: actions/upload-artifact@v4.6.2
@@ -466,7 +466,7 @@ jobs:
       - name: Preparing the server artifact
         run: |
           cd ./build/serverpack/
-          mv *.zip $(basename -s .zip *.zip)-serverpack.zip
+          mv *.zip "$(basename -s .zip *.zip)-serverpack.zip"
 
       - name: Upload server artifact
         uses: actions/upload-artifact@v4.6.2
@@ -505,9 +505,6 @@ jobs:
           if [ ! -f ${{ needs.info.outputs.project_file_name }}-serverpack.zip ]; then
             echo '::error::No value found for artifact `serverpack.zip`.' && exit 1
           fi
-          # if [ ! -f ${{ needs.info.outputs.project_file_name }}-multimc.zip ]; then
-          #   echo '::error::No value found for artifact `multimc.zip`.' && exit 1
-          # fi
           echo "All artifacts found"
 
       - name: Format diff
