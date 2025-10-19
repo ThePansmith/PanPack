@@ -29,16 +29,19 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
 
 ## Setup
 ### As a template 
-1. Clone your fork into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder
-2. Copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder to have a working Prism Instance
+1. Clone your fork of this template into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder
+2. Copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder to have a working [Prism Instance](https://prismlauncher.org/).
+
 To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. 
 
 ### Importing into an existing repository
 1. In your `/minecraft/` folder, ensure that you have one of the following available: `manifest.json` `modrinth.index.json` `.mrpack`, or a curseforge `.zip` file.
-2. Clone the panpack template somewhere, copy over everything but `pakku-lock.json` (and your `.gitattributes` and .git folder, of course), you can delete the template afterwards.
+2. Clone the panpack template somewhere, copy over everything but `pakku-lock.json` (and `.gitattributes` and .git folder, of course), you can delete the template afterwards.
 3. Open up your terminal, change directory to `/minecraft/`, run [`java -jar pakku.jar import <file from step 1>`](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects)
 4. Edit `minecraft/pakku.json`, and `minecraft/.pakku/prism-overrides/` as applicable, add `java -jar pakku.jar fetch` to your instance's [prelaunch commands](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da)
 
+### Contributing to an existing repository that uses this template
+1. Clone your fork of the repository into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides` into your `(instancename)` folder to have a working Prism Instance.
 
 <details>
   <summary>Modloader Sync</summary>
@@ -64,7 +67,6 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 * Give the workflow read/write permissions
 
 ## Notes
-* Contributors will only need to follow the first step of setup to get started; simply just clone the repo and move the pack-mmc to be able to launch the modpack.
 * This template supports automatically posting changelogs to discord: add a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to your secrets with the name `discord-webhook` if you wish to enable that.
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
 * Some of the linting rules are disabled by default, you can enable them (or even add your own!) by editing `custom-plugin.mjs`.
@@ -85,4 +87,4 @@ The API key can be generated in the CurseForge for Studios(https://console.curse
 - Buildscript modified from [Terrafirmagreg](https://www.curseforge.com/minecraft/modpacks/terrafirmagreg-modern)
 
 [^1]: Modrinth buildscripts are disabled by default, as most pack developers do not plan on releasing to modrinth due to important mods not being present, but can be easily uncommented if you do. If also, also add a `MODRINTH_ID` and `MODRINTH_ID`
-[^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version, just remember to add `PreLaunchCommand=java -jar pakku.jar fetch` to it.
+[^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version when initially setting up, just remember to add `PreLaunchCommand=java -jar pakku.jar fetch` to it.
