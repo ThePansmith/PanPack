@@ -35,7 +35,7 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
 To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. 
 
 ### Importing into an existing repository
-1. In your `/minecraft/` folder, ensure that you have one of the following available: `manifest.json` `modrinth.index.json` `.mrpack`, or a curseforge `.zip` file.
+1. In your `/minecraft/` folder, ensure that you have one of the following available: `manifest.json` `modrinth.index.json` `.mrpack`, or a curseforge `.zip` file. (You can generate one with Prism)
 2. Clone the panpack template somewhere, copy over everything but `pakku-lock.json` (and `.gitattributes` and .git folder, of course), you can delete the template afterwards.
 3. Open up your terminal, change directory to `/minecraft/`, run [`java -jar pakku.jar import <file from step 1>`](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects)
 4. Edit `minecraft/pakku.json`, and `minecraft/.pakku/prism-overrides/` as applicable, add `java -jar pakku.jar fetch` to your instance's [prelaunch commands](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da)
