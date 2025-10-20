@@ -69,6 +69,7 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 * This template supports automatically posting changelogs to discord: add a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to your secrets with the name `discord-webhook` if you wish to enable that.
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
 * Some of the linting rules are disabled by default, you can enable them (or even add your own!) by editing `custom-plugin.mjs`.
+* By default, the changes on the `main` and `dev` branches are built, branch names and behavior can be adjusted in the buildscript.
 * Those wishing to handle linting on their end can use the [precommit hook](https://github.com/ThePansmith/Monifactory/blob/main/CONTRIBUTING.md#kubejs-style-guide) to run eslint automatically.
 
 <!-- #### I need a Curseforge Key?
