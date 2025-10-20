@@ -36,7 +36,7 @@ To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hri
 
 ### Importing into an existing repository
 1. In your `/minecraft/` folder, ensure that you have one of the following available: `manifest.json` `modrinth.index.json` `.mrpack`, or a curseforge `.zip` file. (You can generate one with Prism)
-2. Clone the panpack template somewhere, copy over everything but `pakku.json` and `pakku-lock.json` (and `.gitattributes` and .git folder, of course), you can delete the template afterwards.
+2. Clone the panpack template somewhere, copy over everything but `pakku-lock.json` (and `.gitattributes` and .git folder, of course), you can delete the template afterwards.
 3. Open up your terminal, [change directory](https://www.wikihow.com/images/thumb/0/08/Change-Directories-in-Command-Prompt-Step-7-Version-2.jpg/v4-460px-Change-Directories-in-Command-Prompt-Step-7-Version-2.jpg.webp) to `/minecraft/`, run [`java -jar pakku.jar import <file from step 1>`](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects)
 4. Edit `minecraft/pakku.json`, and `minecraft/.pakku/prism-overrides/` as applicable, add `java -jar pakku.jar fetch` to your instance's [prelaunch commands](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da)
 
