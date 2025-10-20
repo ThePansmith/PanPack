@@ -4,9 +4,9 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
 ## Features
 - Pakku:
    - Easily control mods and resourcepacks, handling dependendices for you.
-      - Mods can be easily marked as client or serverside only, or even to [not export at all](https://github.com/ThePansmith/PanPack/blob/cfda140750ebd454094415e32a4f971d49153428/pakku.json#L31C1-L34C10)!
+      - Mods and folders can be easily marked as client or serverside only, or even to [not export at all](https://github.com/ThePansmith/PanPack/blob/cfda140750ebd454094415e32a4f971d49153428/pakku.json#L31C1-L34C10)!
    - Simultaneous Curseforge and Modrinth Modpack Support[^1]
-   - Mods can be easily fetched 
+   - Mods can be easily fetched (more on that below)
 - Actions:
    - Autolinting
       - By default, will **automatically fix** any lint issues in the KubeJS folder, keeping your code organized hassle free.
@@ -18,7 +18,7 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
          - Supports Forge and NeoForge
    - Build and Release
       - Automatically builds on commit, and will push to curseforge on a version change (Serverpacks included)
-      - Automatically Diffs Mods, and attaches your changelog
+      - Automatically Diffs Mods and Pull Requests, and attaches your changelog
       - Can replace text with the update number, useful for the main menu or loading screen.
       - Can publish a truncated changelog to discord if a webhook is provided.
 - Other:
@@ -36,16 +36,15 @@ To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hri
 
 ### Importing into an existing repository
 1. In your `/minecraft/` folder, ensure that you have one of the following available: `manifest.json` `modrinth.index.json` `.mrpack`, or a curseforge `.zip` file. (You can generate one with Prism)
-2. Clone the panpack template somewhere, copy over everything but `pakku-lock.json` (and `.gitattributes` and .git folder, of course), you can delete the template afterwards.
-3. Open up your terminal, change directory to `/minecraft/`, run [`java -jar pakku.jar import <file from step 1>`](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects)
+2. Clone the panpack template somewhere, copy over everything but `pakku.json` and `pakku-lock.json` (and `.gitattributes` and .git folder, of course), you can delete the template afterwards.
+3. Open up your terminal, [change directory](https://www.wikihow.com/images/thumb/0/08/Change-Directories-in-Command-Prompt-Step-7-Version-2.jpg/v4-460px-Change-Directories-in-Command-Prompt-Step-7-Version-2.jpg.webp) to `/minecraft/`, run [`java -jar pakku.jar import <file from step 1>`](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects)
 4. Edit `minecraft/pakku.json`, and `minecraft/.pakku/prism-overrides/` as applicable, add `java -jar pakku.jar fetch` to your instance's [prelaunch commands](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da)
 
 ### Contributing to an existing repository that uses this template
 1. Clone your fork of the repository into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides` into your `(instancename)` folder to have a working Prism Instance.
 
-<details>
-  <summary>Modloader Sync</summary>
-   Those wanting to also automatically sync the modloader version should use one of the below prelaunch commands instead.
+#### Modloader Sync
+   Those wanting to also automatically sync the modloader version should replace the [prelaunch command](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da) with one of the below commands instead.
 
   Windows:
   ```cmd
@@ -55,13 +54,13 @@ To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hri
   ```bash
   java -jar pakku.jar fetch && cp -f "$INST_MC_DIR/.pakku/prism-overrides/mmc-pack.json" "$INST_DIR/mmc-pack.json"
   ```
-</details>
+
 
 ### Building and releasing
 Before you can run the buildscripts, you will need to go to the repository's [secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) and add a [`CURSEFORGE_TOKEN`](https://support.curseforge.com/en/support/solutions/articles/9000197321-curseforge-upload-api) secret and `CURSEFORGE_ID` variable. Before releasing, go to [release.yml](https://github.com/ThePansmith/PanPack/blob/main/.github/workflows/build-release.yml), and change anything that's commented with "Change this!"
 
 ## Usage
-* To initate a curseforge release, update `CHANGELOG.MD` with a new version, [Unreleased] can be used as a staging ground for changes.
+* To initate a release, update `CHANGELOG.MD` with a new version, [Unreleased] can be used as a staging ground for changes.
    * [Unreleased] changes are included in the changelog for builds created from the dev branch.
 * Release type, overrides, and otherwise can be set in pakku.json
 * Give the workflow read/write permissions
@@ -86,5 +85,5 @@ The API key can be generated in the CurseForge for Studios(https://console.curse
 ## Credits
 - Buildscript modified from [Terrafirmagreg](https://www.curseforge.com/minecraft/modpacks/terrafirmagreg-modern)
 
-[^1]: Modrinth buildscripts are disabled by default, as most pack developers do not plan on releasing to modrinth due to important mods not being present, but can be easily uncommented if you do. If also, also add a `MODRINTH_ID` and `MODRINTH_ID`
-[^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version when initially setting up, just remember to add `PreLaunchCommand=java -jar pakku.jar fetch` to it.
+[^1]: Modrinth buildscripts are disabled by default, as most pack developers do not plan on releasing to modrinth due to important mods not being present, but can be easily uncommented if you do. If so, also add a `MODRINTH_TOKEN` and `MODRINTH_ID` secret and variable.
+[^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version when initially setting up, just remember to add `PreLaunchCommand=java -jar pakku.jar fetch` to it. The repository will automatically update the `mmc-pack` in `prism-overrides` based on your pakku.lock when you push.
