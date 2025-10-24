@@ -41,7 +41,7 @@ To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hri
 4. Edit `minecraft/pakku.json`, and `minecraft/.pakku/prism-overrides/` as applicable, add `java -jar pakku.jar fetch` to your instance's [prelaunch commands](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da)
 
 ### Contributing to an existing repository that uses this template
-1. Clone your fork of the repository into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides` into your `(instancename)` folder to have a working Prism Instance.
+1. Clone your fork of the repository into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides` into your `(instancename)` folder to have a working Prism Instance. From there, you can start your newly created instances and the mods will be downloaded for you.
 
 #### Modloader Sync
    Those wanting to also automatically sync the modloader version should replace the [prelaunch command](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da) with one of the below commands instead.
@@ -68,6 +68,7 @@ Before you can run the buildscripts, you will need to go to the repository's [se
 ## Notes
 * This template supports automatically posting changelogs to discord: add a [discord webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to your secrets with the name `discord-webhook` if you wish to enable that.
 * Modloader syncs also works with your repository's Minecraft version and Modloader, niche as it may be.
+   * Of course, they also work across branches, and can be disabled if you need to test something. 
 * Some of the linting rules are disabled by default, you can enable them (or even add your own!) by editing `custom-plugin.mjs`.
 * By default, the changes on the `main` and `dev` branches are built, branch names and behavior can be adjusted in the buildscript.
 * Those wishing to handle linting on their end can use the [precommit hook](https://github.com/ThePansmith/Monifactory/blob/main/CONTRIBUTING.md#kubejs-style-guide) to run eslint automatically.
