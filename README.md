@@ -30,7 +30,8 @@ Like the previous template pack, this is a simple "pack" meant to save you time.
 ## Setup
 ### As a template 
 1. Clone your fork of this template into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder
-2. Copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder to have a working [Prism Instance](https://prismlauncher.org/).
+2. Copy the contents of `(instancename)\minecraft\.pakku\prism-overrides`[^2] into your `(instancename)` folder to have a working [Prism Instance](https://prismlauncher.org/).[^3]
+
 
 To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hrivnak.github.io/Pakku/managing-projects.html#adding-projects) yourself. 
 
@@ -41,7 +42,7 @@ To add your mods, refer to the Pakku docs on how to [add mods](https://juraj-hri
 4. Edit `minecraft/pakku.json`, and `minecraft/.pakku/prism-overrides/` as applicable, add `java -jar pakku.jar fetch` to your instance's [prelaunch commands](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da)
 
 ### Contributing to an existing repository that uses this template
-1. Clone your fork of the repository into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides` into your `(instancename)` folder to have a working Prism Instance. From there, you can start your newly created instances and the mods will be downloaded for you.
+1. Clone your fork of the repository into an empty [`(instancename)\minecraft`](https://github.com/user-attachments/assets/f9de6554-925d-4827-b51c-c7159e6f915f) folder, and copy the contents of `(instancename)\minecraft\.pakku\prism-overrides` into your `(instancename)` folder to have a working Prism Instance. From there, you can start your newly created instances and the mods will be downloaded for you.[^3]
 
 #### Modloader Sync
    Those wanting to also automatically sync the modloader version should replace the [prelaunch command](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da) with one of the below commands instead.
@@ -89,3 +90,4 @@ The API key can be generated in the CurseForge for Studios(https://console.curse
 
 [^1]: Modrinth buildscripts are disabled by default, as most pack developers do not plan on releasing to modrinth due to important mods not being present, but can be easily uncommented if you do. If so, also add a `MODRINTH_TOKEN` and `MODRINTH_ID` secret and variable.
 [^2]: The included `mmc-pack` is for forge 1.20.1, edit/replace `mmc-pack` with your own if on another version when initially setting up, just remember to add `PreLaunchCommand=java -jar pakku.jar fetch` to it. The repository will automatically update the `mmc-pack` in `prism-overrides` based on your pakku.lock when you push.
+[^3]: In the event that the prelaunch fetch command isn't automatically applied, simply just add `java -jar pakku.jar fetch` (or one of it's varients) to your instance's [prelaunch commands](https://github.com/user-attachments/assets/494a632d-1af4-453d-9329-5454ac3d22da) manually.
